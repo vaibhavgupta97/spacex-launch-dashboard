@@ -4,7 +4,9 @@
     color: white;
     height: 85vh;
     width: 100%;
+    overflow: scroll;
 }
-.tbody{
-    color: #fff;
+.content{
+    color: white;
+    text-align: center !important;
 }

@@ -1,56 +1,48 @@
-import React, { Component } from 'react'
+import React, {useEffect,useState} from 'react';
+import axios from "axios";
 import "./Launches.css";
-export default class Launches extends Component {
-    constructor(props){
-        super(props)
-        this.state={
-            users:[],
-            isLoading:false,
-            isError:false
-        }
-    }
-    async componentDidMount(){
-        this.setState({isLoading:true})
-        const response=await fetch("https://api.spacexdata.com/v3/launches")
-        
-        if(response.ok){
-            const users=await response.json();
-            console.log(users);
-            console.log(users[0].flight_number);
-            console.log(users[0].mission_name)
-            console.log(Object.keys(users[0]));
-            console.log(users[0].links.video_link)
-            this.setState({users,isLoading:false})
-        }else{
-            this.setState({isError:true,isLoading:false})
-        }
-    }
-//     renderTableHeader(){
-// return Object.keys(this.state.users[0]).map(attr=><th key={attr}>
-//     {attr.toUpperCase()}
-//     </th>)
-//     }
-    renderTableRows(){
-this.state.users.map(user=>{
-    return(
-        <tr key={user.flight_number}>
-        <td>{user.flight_number}</td>
-        <td>{user.mission_name}</td>
-        <td>{user.launch_year}</td>
-        </tr>
-    )
-})
-    }
-        render() {
-        const {users,isLoading,isError}=this.state;
-        return (
-            <div className="launch">
-<table>
-<thead>
-<h1>table</h1>
-</thead>
-<tbody className="tbody">{this.renderTableRows()}</tbody></table>
-            </div>
-        )
-    }
+function Launches() {
+    const [launch,setLaunch]=useState([]);
+useEffect(()=>{
+async function getData(){
+const res=await axios.get("https://api.spacexdata.com/v3/launches")
+//console.log(res.data[5].flight_number);
+setLaunch(res.data);
+return res;
 }
+getData();
+},["https://api.spacexdata.com/v3/launches"])
+console.log(launch);
+return (
+<div className="launch">
+<table>
+<tr key={launch[0].flight_number}>
+  {Object.keys(launch[0]).map((key) => (
+    <th>{key}</th>
+  ))}
+</tr>
+{launch.map((item) => (
+  <tr key={item.flight_number}>
+    {Object.values(item).map((val) => (
+      <td>{val}</td>
+    ))}
+  </tr>
+))}
+</table>
+
+
+</div>
+)
+}
+
+export default Launches;
+// {launch.map((info)=>{
+//     return(
+//         <div className="content">
+//         <h1 className="content">{info.flight_number}</h1>
+//         <p className="content">{info.links.video_link}</p>
+//         <h2 className="content">{info.flight_number}</h2>
+        
+//         </div>
+//     )
+// })}
