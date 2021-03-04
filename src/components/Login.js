@@ -3,7 +3,7 @@ import "./Login.css";
 import {useDispatch} from 'react-redux';
 import{login} from '../features/userSlice';
 import {auth} from "../firebase";
-import {Link} from "react-router-dom";
+import Footer from "./Footer";
 
 function Login() {
     const[state,setState]=useState(false);
@@ -48,23 +48,26 @@ function Login() {
             .catch((error)=>alert(error));
         };
 return (
-    <div>
+    <div className="login__container">
     {!state ?(<div className="login">
-    <h2>LOGIN</h2>
-<p>Please enter your e-mail and password:</p>
+    <h2 className="login__heading">LOGIN</h2>
+<p className="login__para">Please enter your e-mail and password:</p>
 <form>
 <input value={email} onChange={e=>setEmail(e.target.value)}
  type="text" placeholder="Email"/>
 <input  value={password} onChange={e=>setPassword(e.target.value)}
  type="password" placeholder="Password"/>
-<button className="loginBtn" type="submit" onClick={logInToApp}>lOGIN</button>
+<button className="loginBtn" type="submit" onClick={logInToApp}>LOGIN</button>
 </form>
-<div style={{ display: 'flex' }}>Don't have an account?{" "}
+<div style={{ display: 'flex' }}>Don't have an account?{""}
 
 <span className="login__register"  onClick={()=>setState(true)}>Create one</span>
-</div></div>):
-(<div className="login">
-<p>Please fill in the information below:</p>
+</div>
+</div>):
+
+(<div className="register">
+<h2 className="login__heading">REGISTER</h2>
+<p className="login__para">Please fill in the information below:</p>
 <form>
 <input value={name} onChange={e=>setName(e.target.value)}
  type="text" placeholder="First name"/>
@@ -76,9 +79,11 @@ return (
 
 </form>
 <div >
-<button className="loginBtn"  onClick={register}>Sign up</button>
+<button className="loginBtn" 
+ onClick={register}>CREATE MY ACCOUNT</button>
 </div>
 </div>)}
+<Footer style={{width:"100%"}}/>
 </div>
 )
 }

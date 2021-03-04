@@ -6,7 +6,6 @@ import {useDispatch} from 'react-redux';
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Register from "./components/Register";
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import {login,logout,selectUser} from './features/userSlice';
 import Simulator from './components/Simulator';
@@ -35,9 +34,9 @@ function App() {
     <Router>
     <div className="app">
 {!user ?(
-  <div>
+
   <Login/>
-</div>
+
 ):(  
 <Switch>
 <Route path="/launches">

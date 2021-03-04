@@ -11,7 +11,7 @@ setLaunch(res.data);
 return res;
 }
 getData();
-},["https://api.spacexdata.com/v3/launches"])
+},[])
 console.log(launch);
 return (
 <div className="launch">
