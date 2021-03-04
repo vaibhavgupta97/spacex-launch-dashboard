@@ -7,7 +7,7 @@ export const Sidebar=[
     },
     {
         title:'LAUNCHES',
-        path:'/launches',
+        path:'launches',
         cName:'nav-text'
     },
     {

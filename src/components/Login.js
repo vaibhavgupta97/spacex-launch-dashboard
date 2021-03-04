@@ -6,6 +6,7 @@ import {auth} from "../firebase";
 import {Link} from "react-router-dom";
 
 function Login() {
+    const[state,setState]=useState(false);
     const[email,setEmail]=useState("");
     const[password,setPassword]=useState("");
     const[name,setName]=useState("");
@@ -47,7 +48,22 @@ function Login() {
             .catch((error)=>alert(error));
         };
 return (
-<div className="login">
+    <div>
+    {!state ?(<div className="login">
+    <h2>LOGIN</h2>
+<p>Please enter your e-mail and password:</p>
+<form>
+<input value={email} onChange={e=>setEmail(e.target.value)}
+ type="text" placeholder="Email"/>
+<input  value={password} onChange={e=>setPassword(e.target.value)}
+ type="password" placeholder="Password"/>
+<button className="loginBtn" type="submit" onClick={logInToApp}>lOGIN</button>
+</form>
+<div style={{ display: 'flex' }}>Don't have an account?{" "}
+
+<span className="login__register"  onClick={()=>setState(true)}>Create one</span>
+</div></div>):
+(<div className="login">
 <p>Please fill in the information below:</p>
 <form>
 <input value={name} onChange={e=>setName(e.target.value)}
@@ -57,13 +73,12 @@ return (
  type="text" placeholder="Email"/>
 <input  value={password} onChange={e=>setPassword(e.target.value)}
  type="password" placeholder="Password"/>
-<button className="loginBtn" type="submit" onClick={logInToApp}>Sign In</button>
+
 </form>
-<div style={{ display: 'flex' }}>Don't have an account?{" "}
-<Link to="/register">
-<span className="login__register"  >Sign up</span>
-</Link>
+<div >
+<button className="loginBtn"  onClick={register}>Sign up</button>
 </div>
+</div>)}
 </div>
 )
 }

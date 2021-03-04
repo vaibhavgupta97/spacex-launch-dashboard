@@ -11,7 +11,7 @@ alt="simulator"/>
 <h2 >DRAGON DOCKING SIMULATOR</h2>
 <p >Dragon is designed to autonomously dock and undock with the International Space Station. However, the crew can take manual control of the spacecraft if necessary.</p>
 
-<a className="simulatorBtn" tabindex="0" href="https://iss-sim.spacex.com/" 
+<a className="simulatorBtn" tabIndex="0" href="https://iss-sim.spacex.com/" 
 target="_blank" rel="noopener noreferrer">
 <div className="hover"></div>
 <span className="text">TRY NOW</span>

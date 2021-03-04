@@ -9,10 +9,10 @@ function CrewMission() {
 alt="crew"/>
 <div className="inner__sections">
 
-<h2 class="animate shadowed">
+<h2 className="animate shadowed">
 CREW-1 MISSION</h2>
 <p >Watch the Crew-1 mission from the beginning.</p>
-<a className="simulatorBtn" tabindex="0" href="/updates/crew-1-docks-to-iss">
+<a className="simulatorBtn" tabIndex="0" href="/updates/crew-1-docks-to-iss">
 <div></div>
 <span>LEARN MORE</span>
 </a>

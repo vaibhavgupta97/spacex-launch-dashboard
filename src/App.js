@@ -12,7 +12,9 @@ import {login,logout,selectUser} from './features/userSlice';
 import Simulator from './components/Simulator';
 import CrewMission from './components/CrewMission';
 import Upcoming from "./components/Upcoming";
+import Launches from "./components/Launches";
 function App() {
+
   const dispatch=useDispatch();
   const user=useSelector(selectUser);
   useEffect(() => {
@@ -34,23 +36,27 @@ function App() {
     <div className="app">
 {!user ?(
   <div>
-<Login />
+  <Login/>
 </div>
 ):(  
 <Switch>
-
+<Route path="/launches">
+<Navbar/>
+<Launches />
+</Route>
 <Route path="/">
  <div className="app__body">
 <Navbar/>
-<h1>hello</h1>
 <Upcoming/>
 <CrewMission />
 <Simulator/>
 <Footer />
-
 </div>
 </Route>
-</Switch>)
+
+</Switch>
+)
+
 }
 </div>
 </Router>
