@@ -15,20 +15,7 @@ getData();
 console.log(launch);
 return (
 <div className="launch">
-<table>
-<tr key={launch[0].flight_number}>
-  {Object.keys(launch[0]).map((key) => (
-    <th>{key}</th>
-  ))}
-</tr>
-{launch.map((item) => (
-  <tr key={item.flight_number}>
-    {Object.values(item).map((val) => (
-      <td>{val}</td>
-    ))}
-  </tr>
-))}
-</table>
+
 
 
 </div>
@@ -36,6 +23,20 @@ return (
 }
 
 export default Launches;
+// <table>
+// <tr key={launch[0].flight_number}>
+//   {Object.keys(launch[0]).map((key) => (
+//     <th>{key}</th>
+//   ))}
+// </tr>
+// {launch.map((item) => (
+//   <tr key={item.flight_number}>
+//     {Object.values(item).map((val) => (
+//       <td>{val}</td>
+//     ))}
+//   </tr>
+// ))}
+// </table>
 // {launch.map((info)=>{
 //     return(
 //         <div className="content">
