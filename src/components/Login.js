@@ -51,7 +51,7 @@ return (
     <div className="login__container">
     {!state ?(<div className="login">
     <h2 className="login__heading">LOGIN</h2>
-<p className="login__para">Please enter your e-mail and password:</p>
+<p className="login__para">Please enter your E-mail and Password:</p>
 <form>
 <input value={email} onChange={e=>setEmail(e.target.value)}
  type="text" placeholder="Email"/>
@@ -67,7 +67,7 @@ return (
 
 (<div className="register">
 <h2 className="login__heading">REGISTER</h2>
-<p className="login__para">Please fill in the information below:</p>
+<p >Please fill in the information below:</p>
 <form>
 <input value={name} onChange={e=>setName(e.target.value)}
  type="text" placeholder="First name"/>

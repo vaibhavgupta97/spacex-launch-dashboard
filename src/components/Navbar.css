@@ -21,13 +21,13 @@ display: inline-block;
 .logo{
 width: 210px;
 height: 40px;
-position: fixed;
+/* position: fixed; */
 left: 0;
 object-fit: contain;
 padding-left: 20px;
 cursor: pointer;
-margin-left: 40px;
-margin-top: -27px;
+margin-left: 10px;
+margin-top: -8px;
 }
 
 
@@ -74,10 +74,13 @@ position: fixed;
 top: 0;
 left:-100%;
 transition: 850ms;
+z-index: 12;
+transform-origin: left top;
 }
 .nav-menu.active{
 left: 0;
 transition: 350ms;
+
 }
 .nav-text{
 display: flex;
