@@ -12,6 +12,7 @@ import Simulator from './components/Simulator';
 import CrewMission from './components/CrewMission';
 import Upcoming from "./components/Upcoming";
 import Launches from "./components/Launches";
+import UpcomingTest from './components/UpcomingTest';
 function App() {
 
   const dispatch=useDispatch();
@@ -34,9 +35,7 @@ function App() {
     <Router>
     <div className="app">
 {!user ?(
-
-  <Login/>
-
+<Login/>
 ):(  
 <Switch>
 <Route path="/launches">
@@ -46,6 +45,7 @@ function App() {
 <Route path="/">
  <div className="app__body">
 <Navbar/>
+<UpcomingTest/>
 <Upcoming/>
 <CrewMission />
 <Simulator/>
