@@ -46,11 +46,11 @@ function Login() {
         }); 
             })
             .catch((error)=>alert(error));
-        };
+};
 return (
-    <div className="login__container">
-    {!state ?(<div className="login">
-    <h2 className="login__heading">LOGIN</h2>
+<div className="login__container">
+{!state ?(<div className="login">
+<h2 className="login__heading">LOGIN</h2>
 <p className="login__para">Please enter your E-mail and Password:</p>
 <form>
 <input value={email} onChange={e=>setEmail(e.target.value)}

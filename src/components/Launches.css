@@ -2,11 +2,23 @@
     background-color:black;
     text-align: center;
     color: white;
-    height: 85vh;
+    /* height: 85vh; */
     width: 100%;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 .content{
     color: white;
     text-align: center !important;
+}
+
+.ant-select-arrow {
+    right: 22px;
+}
+
+.ant-modal-header {
+    background: black;
+}
+
+.ant-modal-title {
+    color: #fff;
 }
