@@ -8,11 +8,11 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import {login,logout,selectUser} from './features/userSlice';
-import Simulator from './components/Simulator';
-import CrewMission from './components/CrewMission';
-import Upcoming from "./components/Upcoming";
+import Simulator from './components/desktopComponents/Simulator';
+import CrewMission from './components/desktopComponents/CrewMission';
+import Upcoming from "./components/desktopComponents/Upcoming";
 import Launches from "./components/Launches";
-import UpcomingTest from './components/UpcomingTest';
+import UpcomingTest from './components/desktopComponents/UpcomingTest';
 function App() {
 
   const dispatch=useDispatch();
