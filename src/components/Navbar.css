@@ -3,9 +3,9 @@ display:flex;
 flex-direction: row;
 /* position: fixed; */
 top: 0;
-/* padding: 20px; */
+padding: 20px;
 width: 100%;
-height: 52px;
+height: 69px;
 z-index: 1;
 justify-content: space-between;
 align-items: center;
@@ -17,6 +17,7 @@ background-color: black;
 .navbar_left{
 flex: 1.8;
 display: inline-block;
+
 }
 .logo{
 width: 210px;
@@ -41,7 +42,11 @@ margin-left: -45px;
 color: white;
 margin-left: 12px;
 margin-right: 13px;
+cursor: pointer;
 
+}
+.navbar_middle>h5:hover{
+border-bottom: 1px solid white;
 }
 .navbar_right{
 flex: 1.2;
@@ -70,7 +75,7 @@ width: 350px;
 height: 100vh;
 display: flex;
 justify-content:flex-end;
-position: fixed;
+position: absolute;
 top: 0;
 left:-100%;
 transition: 850ms;
@@ -86,10 +91,10 @@ transition: 350ms;
 display: flex;
 justify-content: flex-end;
 align-items: center;
-padding: 8px 20px 8px 8px;
+padding: 19px 20px 18px 8px;
 list-style: none;
 height: 20px;
-
+line-height: 20px;
 }
 .logout{
     padding: 8px 20px 8px 210px;
@@ -102,6 +107,7 @@ height: 20px;
 }
 .logout:hover{
     color: gray;
+    /* border-bottom: 1px solid gray; */
 }
 .nav-text a{
 text-decoration: none;
@@ -115,6 +121,9 @@ align-items: center;
 padding: 0 16px;
 /* border-radius: 4px; */
 justify-content: flex-end;
+}
+.nav-text:hover{
+    border-bottom: 1px solid gray;
 }
 .nav-text a:hover{
     color: gray;

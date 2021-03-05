@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux';
 import{login} from '../features/userSlice';
 import {auth} from "../firebase";
 import Footer from "./Footer";
-
+import {LeftCircleOutlined} from '@ant-design/icons'
 function Login() {
     const[state,setState]=useState(false);
     const[email,setEmail]=useState("");
@@ -82,6 +82,9 @@ return (
 <button className="loginBtn" 
  onClick={register}>CREATE MY ACCOUNT</button>
 </div>
+<button className="loginBtn  back" onClick={()=>setState(false)}>
+<span style={{marginRight:"8px"}}><LeftCircleOutlined /></span> 
+BACK TO LOGIN</button>
 </div>)}
 <Footer style={{width:"100%"}}/>
 </div>
