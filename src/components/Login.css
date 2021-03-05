@@ -25,11 +25,11 @@ padding-left: 20px;
 margin-bottom: 10px;
 border: 1px solid rgba(128,128,128,0.4);
 }
-.loginBtn{
-    width: 365px;
-    height: 48px;
+.loginBtn {
+    width: 340px;
+    height: 46px;
     font-size: medium;
-    cursor: pointer;
+    cursor: pointer !important;
     color: #fff;
     background-color:black;
     margin-bottom: 10px;
@@ -40,9 +40,9 @@ border: 1px solid rgba(128,128,128,0.4);
 }
 
 .login__register{
-    color: grey;
+    color: #0000EE;
     font-weight: 600;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 .login >p{
     margin-top: 20px;

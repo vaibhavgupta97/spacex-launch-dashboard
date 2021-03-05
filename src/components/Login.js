@@ -61,7 +61,7 @@ return (
 </form>
 <div style={{ display: 'flex' }}>Don't have an account?{""}
 
-<span className="login__register"  onClick={()=>setState(true)}>Create one</span>
+<span className="login__register"  style={{ cursor: 'pointer' }} onClick={()=>setState(true)}>Sign up</span>
 </div>
 </div>):
 

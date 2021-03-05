@@ -36,9 +36,7 @@ function Launches() {
 useEffect(()=>{
 getData("all");
 },[])
-console.log(launch);
 async function getData(launchType, date){
-    console.log('start', date)
     let start="";
     let end="";
     let res=[];
@@ -48,15 +46,12 @@ async function getData(launchType, date){
     }
     setGetDataLoader(true);
     if (launchType === 'all') {
-        console.log('all')
          res=await axios.get(`https://api.spacexdata.com/v3/launches?start=${start}&end=${end}`)
     } else if (launchType === 'past') {
-        console.log('passt')
          res=await axios.get(`https://api.spacexdata.com/v3/launches/past?start=${start}&end=${end}`)
     } else if (launchType === 'upcoming') {
          res=await axios.get(`https://api.spacexdata.com/v3/launches/upcoming?start=${start}&end=${end}`)
     }
-    //console.log(res.data[5].flight_number);
     setLaunch(res.data);
     setGetDataLoader(false);
     return res;
@@ -65,7 +60,6 @@ return (
 <div className="launch">
 <div style={{ display: 'flex'}}>
 <Select value={launchType} style={{ marginRight: '12px', width: 190, marginLeft: '12px' }} onChange={value  => {
-    console.log('value', value)
     getData(value, [startDate, endDate])
 setLaunchType(value);
 }}>
@@ -74,8 +68,7 @@ setLaunchType(value);
 <Option value="all">All Launches</Option>
 </Select>
 <RangePicker format="YYYY-MM-DD" placeholder={['Start Date', 'End Date']} onChange={(date, dateString) => {
-    console.log('dateString', dateString)
-    getData(dateString);
+    getData(launchType, dateString);
     setStartDate(dateString[0])
     setEndDate(dateString[1])
 }}/>
