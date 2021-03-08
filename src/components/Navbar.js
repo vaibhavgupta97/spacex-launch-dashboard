@@ -43,7 +43,7 @@ alt="home" />
 </div>
 <div className="navbar_right">
     <h5 style={{marginTop:"12px", cursor:"pointer"}}>SHOP</h5>
-    <IconButton><FaBars className="bars"onClick={showSidebar}/></IconButton>
+    <IconButton><FaBars className="bars" onClick={showSidebar}/></IconButton>
 </div>
 
 <nav className={sidebar ?"nav-menu active" :"nav-menu"}>

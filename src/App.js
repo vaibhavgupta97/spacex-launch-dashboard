@@ -1,8 +1,8 @@
-import React,{useEffect} from 'react';
-import {useSelector} from 'react-redux';
+import React from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import './App.css';
 import {auth} from "./firebase";
-import {useDispatch} from 'react-redux';
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -13,53 +13,75 @@ import CrewMission from './components/desktopComponents/CrewMission';
 import Upcoming from "./components/desktopComponents/Upcoming";
 import Launches from "./components/Launches";
 import UpcomingTest from './components/desktopComponents/UpcomingTest';
-function App() {
+class App extends React.Component {
 
-  const dispatch=useDispatch();
-  const user=useSelector(selectUser);
-  useEffect(() => {
+  // constructor(props) {
+  //   super(props);
+  // }
+
+  componentDidMount() {
     auth.onAuthStateChanged(userAuth=>{
       if(userAuth){
- dispatch(login({
-   email: userAuth.email,
-   uid:userAuth.uid,
-   displayName:userAuth.displayName,
- }));
+        login({
+          email: userAuth.email,
+          uid:userAuth.uid,
+          displayName:userAuth.displayName,
+        })
       }
       else{
- dispatch(logout())
+        logout()
       }
     });
-   }, []);
-  return (
-    <Router>
-    <div className="app">
-{!user ?(
-<Login/>
-):(  
-<Switch>
-<Route path="/launches">
-<Navbar/>
-<Launches />
-</Route>
-<Route path="/">
- <div className="app__body">
-<Navbar/>
-<UpcomingTest/>
-<Upcoming/>
-<CrewMission />
-<Simulator/>
-<Footer />
-</div>
-</Route>
+  }
 
-</Switch>
-)
-
+  render() {
+    return (
+      <Router>
+        <div className="app">
+          {
+            !this.props.user ?
+            (
+              <Login/>
+            )
+            :(  
+              <Switch>
+            <Route path="/launches">
+              <Navbar/>
+              <Launches />
+          </Route>
+          <Route path="/">
+            <div className="app__body">
+              <Navbar/>
+              <UpcomingTest/>
+              <Upcoming/>
+              <CrewMission />
+              <Simulator/>
+              <Footer />
+            </div>
+                </Route>
+              </Switch>
+            )
+          }
+        </div>
+      </Router>
+    );
+  }
 }
-</div>
-</Router>
-);
+
+const mapStateToProps = state => {
+  return {
+   user: state.user.user,
+  }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+{
+  login,
+  logout,
+},
+    dispatch
+  )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
